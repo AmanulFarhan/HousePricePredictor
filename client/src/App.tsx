@@ -20,7 +20,7 @@ export default function App() {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/get_locations")
+    fetch("https://housepricepredictor-x4ah.onrender.com/get_locations")
       .then(res => res.json())
       .then(data => setLocations(data.locations))
       .catch(() => setError("Could not load locations. Is Flask running?"));
