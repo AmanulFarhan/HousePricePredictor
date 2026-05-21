@@ -22,7 +22,7 @@ export default function App() {
   useEffect(() => {
     fetch("https://housepricepredictor-x4ah.onrender.com/get_locations")
       .then(res => res.json())
-      .then(data => setLocations(data.locations))
+      .then(data => setLocations(data.locations || []))
       .catch(() => setError("Could not load locations. Is Flask running?"));
   }, []);
 
@@ -43,7 +43,7 @@ export default function App() {
       formData.append("bhk", String(bhk));
       formData.append("bath", String(bath));
 
-      const res = await fetch("http://127.0.0.1:5000/predict_home_price", {
+      const res = await fetch("https://housepricepredictor-x4ah.onrender.com", {
         method: "POST",
         body: formData,
       });
