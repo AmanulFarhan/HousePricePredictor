@@ -43,7 +43,7 @@ export default function App() {
       formData.append("bhk", String(bhk));
       formData.append("bath", String(bath));
 
-      const res = await fetch("https://housepricepredictor-x4ah.onrender.com", {
+      const res = await fetch("https://housepricepredictor-x4ah.onrender.com/predict_home_price", {
         method: "POST",
         body: formData,
       });
