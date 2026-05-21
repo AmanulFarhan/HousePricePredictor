@@ -7,6 +7,7 @@ CORS(app)
 
 @app.route('/get_locations')
 def get_locations():
+    util.load_saved_artifacts()
     response = jsonify({
         "locations": util.get_locations()
     })
